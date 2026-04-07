@@ -1,461 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sharan Vemula | D365 & AI Consultant</title>
-<meta name="description" content="Vemula Bhagya Venkata Sharan — D365 Techno-Functional Consultant specialising in Power Platform, AI integrations, and enterprise CRM solutions." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Sharan Vemula | D365 &amp; AI Consultant</title>
+<meta name="description" content="Vemula Bhagya Venkata Sharan — Dynamics 365 Techno-Functional Consultant. Power Platform, C# Plugins, AI Integration. Chennai, India."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Fira+Code:wght@400;500&family=Syne:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --ink:#0c0c0c;
-  --ink2:#3d3d3d;
-  --ink3:#888;
-  --bg:#f7f4ef;
-  --bg2:#eeebe4;
-  --bg3:#e5e1d8;
-  --accent:#1b3f6e;
-  --accent-light:#e8eef7;
-  --red:#bf3b1a;
-  --red-light:#faeae5;
-  --teal:#0e6e5e;
-  --teal-light:#e2f4f1;
-  --amber:#9a5a0a;
-  --amber-light:#fdf0dc;
+  --ink:#0a0a0a; --ink2:#404040; --ink3:#909090;
+  --bg:#f6f3ee; --bg2:#efecea; --bg3:#e6e2db;
   --card:#ffffff;
-  --line:rgba(0,0,0,0.08);
-  --line2:rgba(0,0,0,0.14);
-  --nav-h:64px;
+  --accent:#1c3f6e; --accent2:#c0391a;
+  --teal:#0b6b5c; --amber:#945a0c; --green:#2a6e3f;
+  --line:rgba(0,0,0,0.07); --line2:rgba(0,0,0,0.14);
+  --nav-h:62px; --max:1180px;
 }
 html{scroll-behavior:smooth;}
-body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.6;overflow-x:hidden;}
-
-/* SCROLLBAR */
-::-webkit-scrollbar{width:5px;}
+body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.6;overflow-x:hidden;}
+::-webkit-scrollbar{width:4px;}
 ::-webkit-scrollbar-track{background:var(--bg);}
 ::-webkit-scrollbar-thumb{background:var(--bg3);border-radius:99px;}
+::selection{background:var(--accent);color:#fff;}
 
 /* NAV */
 nav{
-  position:fixed;top:0;left:0;right:0;z-index:200;
-  height:var(--nav-h);
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 5vw;
-  background:rgba(247,244,239,0.88);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--line);
+  position:fixed;inset:0 0 auto;z-index:300;height:var(--nav-h);
+  display:flex;align-items:center;justify-content:space-between;padding:0 5vw;
+  background:rgba(246,243,238,0.88);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line);transition:box-shadow .3s;
 }
+nav.scrolled{box-shadow:0 2px 28px rgba(0,0,0,0.07);}
 .nav-logo{
-  font-family:'JetBrains Mono',monospace;
-  font-size:12px;font-weight:500;
-  color:var(--red);letter-spacing:0.08em;
-  text-decoration:none;
-}
-.nav-links{display:flex;gap:2rem;align-items:center;}
-.nav-links a{
-  text-decoration:none;color:var(--ink2);
-  font-size:12.5px;font-weight:400;letter-spacing:0.04em;
-  transition:color .2s;
-}
-.nav-links a:hover{color:var(--ink);}
-.nav-cta{
-  background:var(--accent);color:#fff !important;
-  padding:6px 16px;border-radius:4px;
-  font-size:12px !important;font-weight:500 !important;
-  letter-spacing:0.05em !important;
-  transition:background .2s !important;
-}
-.nav-cta:hover{background:#0f2748 !important;}
-
-/* HERO */
-.hero{
-  min-height:100vh;
-  padding:calc(var(--nav-h) + 5rem) 5vw 5rem;
-  display:flex;align-items:center;
-  position:relative;overflow:hidden;
-}
-.hero-bg-text{
-  position:absolute;right:-2vw;top:50%;transform:translateY(-50%);
-  font-family:'Playfair Display',serif;
-  font-size:clamp(8rem,18vw,22rem);
-  font-weight:700;
-  color:rgba(0,0,0,0.03);
-  pointer-events:none;user-select:none;
-  white-space:nowrap;line-height:1;
-}
-.hero-inner{
-  max-width:1200px;margin:0 auto;width:100%;
-  display:grid;grid-template-columns:1.1fr 0.9fr;gap:5rem;align-items:center;
-}
-.hero-label{
-  font-family:'JetBrains Mono',monospace;
-  font-size:10.5px;letter-spacing:0.18em;
-  color:var(--red);text-transform:uppercase;
-  margin-bottom:1.4rem;
+  font-family:'Fira Code',monospace;font-size:12px;font-weight:500;
+  color:var(--accent2);letter-spacing:.1em;text-decoration:none;
   display:flex;align-items:center;gap:8px;
 }
-.hero-label::before{content:'';display:block;width:24px;height:1px;background:var(--red);}
-.hero-name{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(2.6rem,4.5vw,4.2rem);
-  line-height:1.08;color:var(--ink);
-  margin-bottom:0.5rem;
-}
-.hero-name span{color:var(--accent);}
-.hero-role{
-  font-size:13px;font-weight:400;color:var(--ink3);
-  font-family:'JetBrains Mono',monospace;
-  letter-spacing:0.05em;margin-bottom:1.6rem;
-}
-.hero-desc{
-  font-size:15px;color:var(--ink2);line-height:1.85;
-  max-width:460px;margin-bottom:2.4rem;
-}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
-.btn-fill{
-  background:var(--accent);color:#fff;
-  padding:0.75rem 1.8rem;border-radius:5px;
-  font-size:13px;font-weight:500;text-decoration:none;
-  letter-spacing:0.04em;transition:background .2s,transform .15s;
-  display:inline-block;
-}
-.btn-fill:hover{background:#0f2748;transform:translateY(-1px);}
-.btn-ghost{
-  border:1.5px solid var(--ink2);color:var(--ink2);
-  padding:0.75rem 1.8rem;border-radius:5px;
-  font-size:13px;font-weight:500;text-decoration:none;
-  letter-spacing:0.04em;transition:all .2s;display:inline-block;
-}
-.btn-ghost:hover{border-color:var(--ink);color:var(--ink);transform:translateY(-1px);}
+.nav-dot{width:7px;height:7px;border-radius:50%;background:var(--accent2);animation:blink 2.4s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.3;transform:scale(.65);}}
+.nav-links{display:flex;align-items:center;gap:2rem;}
+.nav-links a{text-decoration:none;color:var(--ink2);font-size:12.5px;font-weight:400;letter-spacing:.04em;transition:color .2s;}
+.nav-links a:hover{color:var(--ink);}
+.nav-cta{background:var(--accent)!important;color:#fff!important;padding:7px 18px;border-radius:4px;font-size:12px!important;font-weight:600!important;letter-spacing:.05em;transition:background .2s,transform .15s!important;}
+.nav-cta:hover{background:#122d52!important;transform:translateY(-1px)!important;}
 
-/* HERO RIGHT */
-.hero-right{display:flex;flex-direction:column;gap:12px;}
+/* HERO */
+.hero{min-height:100vh;padding:calc(var(--nav-h) + 6rem) 5vw 5rem;display:flex;align-items:center;position:relative;overflow:hidden;}
+.hero-wm{
+  position:absolute;right:-1vw;top:50%;transform:translateY(-52%);
+  font-family:'Cormorant Garamond',serif;font-weight:600;
+  font-size:clamp(9rem,20vw,24rem);color:rgba(0,0,0,0.026);
+  pointer-events:none;user-select:none;white-space:nowrap;line-height:1;
+}
+.hero-inner{max-width:var(--max);margin:0 auto;width:100%;display:grid;grid-template-columns:1.15fr .85fr;gap:5rem;align-items:center;}
+.h-tag{font-family:'Fira Code',monospace;font-size:10.5px;letter-spacing:.18em;color:var(--accent2);text-transform:uppercase;margin-bottom:1.4rem;display:flex;align-items:center;gap:10px;}
+.h-tag::before{content:'';display:block;width:28px;height:1px;background:var(--accent2);}
+.h-name{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(3rem,5.2vw,5rem);line-height:1.03;color:var(--ink);margin-bottom:.5rem;}
+.h-name span{color:var(--accent);display:block;}
+.h-role{font-family:'Fira Code',monospace;font-size:11.5px;color:var(--ink3);letter-spacing:.05em;margin-bottom:1.9rem;line-height:1.75;}
+.h-desc{font-size:15px;color:var(--ink2);line-height:1.9;max-width:480px;margin-bottom:2.5rem;font-weight:400;}
+.h-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-f{background:var(--accent);color:#fff;padding:.8rem 2rem;border-radius:5px;font-size:13px;font-weight:600;text-decoration:none;letter-spacing:.04em;transition:background .2s,transform .15s;display:inline-block;}
+.btn-f:hover{background:#122d52;transform:translateY(-2px);}
+.btn-g{border:1.5px solid var(--ink2);color:var(--ink2);padding:.8rem 2rem;border-radius:5px;font-size:13px;font-weight:600;text-decoration:none;letter-spacing:.04em;transition:all .2s;display:inline-block;}
+.btn-g:hover{border-color:var(--ink);color:var(--ink);transform:translateY(-2px);}
+.h-right{display:flex;flex-direction:column;gap:12px;}
 .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.stat-card{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:10px;padding:1.2rem 1.3rem;
-  transition:border-color .2s;
-}
-.stat-card:hover{border-color:var(--line2);}
-.stat-num{
-  font-family:'Playfair Display',serif;
-  font-size:2.6rem;line-height:1;color:var(--accent);
-}
-.stat-label{font-size:11px;color:var(--ink3);margin-top:5px;letter-spacing:0.05em;}
-.cert-block{
-  background:var(--accent);border-radius:10px;
-  padding:1.1rem 1.4rem;
-  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
-}
-.cert-label{font-size:10px;color:rgba(255,255,255,0.5);font-family:'JetBrains Mono',monospace;letter-spacing:0.1em;margin-right:4px;}
-.cert-pill{
-  background:rgba(255,255,255,0.13);color:#fff;
-  font-family:'JetBrains Mono',monospace;
-  font-size:11px;padding:4px 10px;border-radius:4px;
-  letter-spacing:0.07em;
-}
-.stack-block{
-  background:var(--bg2);border-radius:10px;
-  padding:1rem 1.4rem;
-  display:flex;flex-wrap:wrap;gap:7px;
-}
-.stack-tag{
-  background:var(--card);border:1px solid var(--line);
-  font-family:'JetBrains Mono',monospace;
-  font-size:10px;color:var(--ink2);
-  padding:3px 9px;border-radius:3px;letter-spacing:0.04em;
-}
-
-/* DIVIDER */
-.divider{max-width:1200px;margin:0 auto;height:1px;background:var(--line);}
+.stat-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.2rem 1.4rem;transition:border-color .25s,transform .25s;}
+.stat-card:hover{border-color:var(--line2);transform:translateY(-2px);}
+.stat-num{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:2.9rem;line-height:1;color:var(--accent);}
+.stat-lbl{font-size:11px;color:var(--ink3);margin-top:5px;letter-spacing:.04em;}
+.cert-strip{background:var(--accent);border-radius:12px;padding:1.1rem 1.5rem;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.cert-lbl{font-family:'Fira Code',monospace;font-size:10px;color:rgba(255,255,255,.42);letter-spacing:.12em;margin-right:2px;}
+.cert-pill{background:rgba(255,255,255,.13);color:#fff;font-family:'Fira Code',monospace;font-size:11px;padding:4px 11px;border-radius:4px;letter-spacing:.07em;transition:background .2s;}
+.cert-pill:hover{background:rgba(255,255,255,.23);}
+.stack-wrap{background:var(--bg2);border-radius:12px;padding:1rem 1.4rem;display:flex;flex-wrap:wrap;gap:7px;}
+.stag{background:var(--card);border:1px solid var(--line);font-family:'Fira Code',monospace;font-size:10px;color:var(--ink2);padding:4px 10px;border-radius:3px;letter-spacing:.04em;transition:border-color .2s,color .2s;}
+.stag:hover{border-color:var(--accent);color:var(--accent);}
 
 /* SECTIONS */
 section{padding:5.5rem 5vw;}
-.section-inner{max-width:1200px;margin:0 auto;}
-.section-eyebrow{
-  font-family:'JetBrains Mono',monospace;
-  font-size:10px;letter-spacing:0.2em;color:var(--red);
-  text-transform:uppercase;margin-bottom:0.8rem;
-  display:flex;align-items:center;gap:8px;
-}
-.section-eyebrow::before{content:'';display:block;width:20px;height:1px;background:var(--red);}
-.section-title{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(1.9rem,3vw,2.8rem);
-  line-height:1.15;margin-bottom:3.5rem;
-}
+.si{max-width:var(--max);margin:0 auto;}
+.s-eye{font-family:'Fira Code',monospace;font-size:10px;letter-spacing:.2em;color:var(--accent2);text-transform:uppercase;margin-bottom:.8rem;display:flex;align-items:center;gap:8px;}
+.s-eye::before{content:'';display:block;width:20px;height:1px;background:var(--accent2);}
+.s-title{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(2rem,3.2vw,3rem);line-height:1.12;margin-bottom:3.5rem;}
+.s-title em{font-style:italic;color:var(--accent);}
 
 /* ABOUT */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
-.about-text p{font-size:15px;color:var(--ink2);line-height:1.9;margin-bottom:1.2rem;}
-.about-text p:last-child{margin-bottom:0;}
-.about-text strong{color:var(--ink);font-weight:600;}
-.about-highlights{display:flex;flex-direction:column;gap:12px;}
-.highlight-card{
-  background:var(--card);border:1px solid var(--line);
-  border-radius:10px;padding:1.2rem 1.4rem;
-  border-left:3px solid var(--accent);
-}
-.highlight-card.red{border-left-color:var(--red);}
-.highlight-card.teal{border-left-color:var(--teal);}
-.highlight-title{font-size:12px;font-weight:600;color:var(--ink);margin-bottom:4px;}
-.highlight-body{font-size:12.5px;color:var(--ink2);line-height:1.6;}
+#about{background:var(--bg);}
+.ag{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:start;}
+.ab p{font-size:15px;color:var(--ink2);line-height:1.9;margin-bottom:1.3rem;font-weight:400;}
+.ab strong{color:var(--ink);font-weight:600;}
+.ab p:last-child{margin-bottom:0;}
+.ac-list{display:flex;flex-direction:column;gap:12px;}
+.ac{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:1.2rem 1.5rem;border-left:3px solid var(--accent);transition:transform .2s;}
+.ac:hover{transform:translateX(4px);}
+.ac.r{border-left-color:var(--accent2);}.ac.t{border-left-color:var(--teal);}.ac.a{border-left-color:var(--amber);}
+.ac-t{font-size:12.5px;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.ac-b{font-size:12.5px;color:var(--ink2);line-height:1.65;font-weight:400;}
 
 /* PROJECTS */
-.projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
-.proj-card{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:12px;padding:1.8rem 2rem;
-  display:flex;flex-direction:column;gap:1rem;
-  transition:transform .2s,box-shadow .2s,border-color .2s;
-  position:relative;overflow:hidden;
-  cursor:default;
-}
-.proj-card::after{
-  content:'';position:absolute;
-  top:0;left:0;right:0;height:3px;
-}
-.proj-card.c-blue::after{background:var(--accent);}
-.proj-card.c-red::after{background:var(--red);}
-.proj-card.c-teal::after{background:var(--teal);}
-.proj-card.c-amber::after{background:var(--amber);}
-.proj-card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 12px 40px rgba(0,0,0,0.08);
-  border-color:var(--line2);
-}
-.proj-header{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;}
-.proj-icon{
-  width:42px;height:42px;border-radius:10px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:18px;flex-shrink:0;
-}
-.proj-icon.blue{background:var(--accent-light);}
-.proj-icon.red{background:var(--red-light);}
-.proj-icon.teal{background:var(--teal-light);}
-.proj-icon.amber{background:var(--amber-light);}
-.proj-status{
-  font-size:10px;font-family:'JetBrains Mono',monospace;
-  padding:3px 9px;border-radius:3px;letter-spacing:0.06em;
-  white-space:nowrap;
-}
-.s-live{background:#d6f5e6;color:#0a5c30;}
-.s-wip{background:#fde8d0;color:#7a3309;}
-.s-shipped{background:var(--accent-light);color:var(--accent);}
-.proj-title{
-  font-family:'Playfair Display',serif;
-  font-size:1.2rem;line-height:1.25;
-}
-.proj-desc{font-size:13px;color:var(--ink2);line-height:1.75;}
-.proj-impact{
-  background:var(--bg2);border-radius:6px;
-  padding:10px 14px;
-  font-size:12px;color:var(--ink2);
-  line-height:1.55;
-}
-.proj-impact strong{color:var(--ink);font-weight:600;}
-.proj-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;}
-.proj-tag{
-  background:var(--bg2);
-  font-family:'JetBrains Mono',monospace;
-  font-size:10px;color:var(--ink2);
-  padding:3px 8px;border-radius:3px;letter-spacing:0.04em;
-}
+#projects{background:var(--bg2);}
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.pc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.9rem 2rem;display:flex;flex-direction:column;gap:1rem;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s,border-color .25s;}
+.pc::before{content:'';position:absolute;inset:0 0 auto;height:3px;transform:scaleX(0);transform-origin:left;transition:transform .38s ease;}
+.pc:hover::before{transform:scaleX(1);}
+.pc.cb::before{background:var(--accent);}.pc.cr::before{background:var(--accent2);}.pc.ct::before{background:var(--teal);}.pc.ca::before{background:var(--amber);}.pc.cg::before{background:var(--green);}
+.pc:hover{transform:translateY(-5px);box-shadow:0 18px 52px rgba(0,0,0,.09);border-color:var(--line2);}
+.pt{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;}
+.pi{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.pib{background:#e5edf7;}.pir{background:#faece6;}.pit{background:#dff2ee;}.pia{background:#fdf0db;}.pig{background:#e1f2e8;}
+.ps{font-size:10px;font-family:'Fira Code',monospace;padding:4px 10px;border-radius:3px;letter-spacing:.06em;white-space:nowrap;flex-shrink:0;}
+.sl{background:#d5f3e5;color:#0a5c2f;}.sw{background:#fde8d0;color:#7a3309;}.ss{background:#dde8f7;color:var(--accent);}.sp{background:#d5f3e5;color:#0a5c2f;}
+.ptitle{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.25rem;line-height:1.25;}
+.pdesc{font-size:13px;color:var(--ink2);line-height:1.78;font-weight:400;}
+.pimp{background:var(--bg2);border-radius:7px;padding:11px 14px;font-size:12px;color:var(--ink2);line-height:1.6;border-left:2px solid var(--line2);}
+.pimp strong{color:var(--ink);font-weight:600;}
+.ptags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;}
+.ptag{background:var(--bg2);font-family:'Fira Code',monospace;font-size:10px;color:var(--ink2);padding:3px 8px;border-radius:3px;letter-spacing:.04em;}
 
 /* SKILLS */
-.skills-layout{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;}
-.skill-card{
-  background:var(--card);border:1px solid var(--line);
-  border-radius:12px;padding:1.4rem 1.6rem;
-}
-.skill-card-title{
-  font-size:10.5px;font-family:'JetBrains Mono',monospace;
-  color:var(--red);text-transform:uppercase;letter-spacing:0.12em;
-  margin-bottom:1.2rem;
-  display:flex;align-items:center;gap:7px;
-}
-.skill-rows{display:flex;flex-direction:column;gap:11px;}
-.skill-row{display:flex;justify-content:space-between;align-items:center;gap:12px;}
-.skill-name{font-size:13px;color:var(--ink2);white-space:nowrap;}
-.skill-track{flex:1;height:3px;background:var(--bg3);border-radius:99px;overflow:hidden;}
-.skill-bar{height:100%;border-radius:99px;background:var(--accent);}
-.skill-bar.red{background:var(--red);}
-.skill-bar.teal{background:var(--teal);}
+#skills{background:var(--bg);}
+.skg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;}
+.skc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.5rem 1.7rem;transition:border-color .2s;}
+.skc:hover{border-color:var(--line2);}
+.skh{font-family:'Fira Code',monospace;font-size:10px;color:var(--accent2);text-transform:uppercase;letter-spacing:.13em;margin-bottom:1.3rem;padding-bottom:.8rem;border-bottom:1px solid var(--line);}
+.skrs{display:flex;flex-direction:column;gap:12px;}
+.skr{display:flex;justify-content:space-between;align-items:center;gap:10px;}
+.skn{font-size:13px;color:var(--ink2);font-weight:400;white-space:nowrap;}
+.skt{flex:1;height:3px;background:var(--bg3);border-radius:99px;overflow:hidden;}
+.skb{height:100%;border-radius:99px;background:var(--accent);transition:width 1.2s cubic-bezier(.4,0,.2,1);}
+.skb.r{background:var(--accent2);}.skb.t{background:var(--teal);}
 
 /* EXPERIENCE */
-.exp-timeline{display:flex;flex-direction:column;gap:0;}
-.exp-item{
-  display:grid;grid-template-columns:180px 1fr;
-  gap:2rem;
-  padding:2rem 0;
-  border-bottom:1px solid var(--line);
-  position:relative;
-}
-.exp-item:first-child{padding-top:0;}
-.exp-item:last-child{border-bottom:none;}
-.exp-date{
-  font-family:'JetBrains Mono',monospace;
-  font-size:11px;color:var(--ink3);
-  letter-spacing:0.05em;padding-top:4px;
-}
-.exp-company{font-size:11px;color:var(--red);font-weight:500;margin-top:4px;}
-.exp-role{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:6px;}
-.exp-desc{font-size:13.5px;color:var(--ink2);line-height:1.75;}
-.exp-points{list-style:none;margin-top:8px;display:flex;flex-direction:column;gap:5px;}
-.exp-points li{
-  font-size:13px;color:var(--ink2);line-height:1.65;
-  padding-left:1.2rem;position:relative;
-}
-.exp-points li::before{
-  content:'→';position:absolute;left:0;
-  color:var(--accent);font-size:11px;top:3px;
-}
+#experience{background:var(--bg2);}
+.exl{display:flex;flex-direction:column;}
+.exi{display:grid;grid-template-columns:200px 1fr;gap:2.5rem;padding:2.5rem 0;border-bottom:1px solid var(--line);}
+.exi:first-child{padding-top:0;}
+.exi:last-child{border-bottom:none;padding-bottom:0;}
+.exm{padding-top:3px;}
+.exp{font-family:'Fira Code',monospace;font-size:11px;color:var(--ink3);letter-spacing:.04em;line-height:1.6;}
+.exc{font-size:12px;color:var(--accent2);font-weight:600;margin-top:6px;}
+.exl2{font-size:11px;color:var(--ink3);margin-top:2px;font-family:'Fira Code',monospace;}
+.exr{font-size:16px;font-weight:600;color:var(--ink);margin-bottom:2px;}
+.exproj{font-family:'Fira Code',monospace;font-size:10.5px;color:var(--ink3);margin-bottom:.9rem;letter-spacing:.03em;}
+.exs{font-size:13.5px;color:var(--ink2);line-height:1.8;margin-bottom:.9rem;font-weight:400;}
+.expts{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.expts li{font-size:13px;color:var(--ink2);line-height:1.7;padding-left:1.4rem;position:relative;font-weight:400;}
+.expts li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:11px;top:4px;font-family:'Fira Code',monospace;}
 
 /* CONTACT */
-.contact-section{
-  background:var(--accent);
-  padding:5.5rem 5vw;
-  position:relative;overflow:hidden;
-}
-.contact-section::before{
-  content:'CONNECT';
-  position:absolute;right:-3vw;bottom:-2rem;
-  font-family:'Playfair Display',serif;
-  font-size:clamp(5rem,15vw,18rem);
-  font-weight:700;color:rgba(255,255,255,0.04);
-  pointer-events:none;user-select:none;
-  line-height:1;
-}
-.contact-inner{max-width:1200px;margin:0 auto;}
-.contact-eyebrow{
-  font-family:'JetBrains Mono',monospace;
-  font-size:10px;letter-spacing:0.2em;
-  color:rgba(255,255,255,0.5);text-transform:uppercase;
-  margin-bottom:0.8rem;display:flex;align-items:center;gap:8px;
-}
-.contact-eyebrow::before{content:'';display:block;width:20px;height:1px;background:rgba(255,255,255,0.4);}
-.contact-title{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(2rem,4vw,3.5rem);
-  color:#fff;line-height:1.15;margin-bottom:1.2rem;
-}
-.contact-title em{font-style:italic;color:rgba(255,255,255,0.6);}
-.contact-sub{font-size:15px;color:rgba(255,255,255,0.65);margin-bottom:2.5rem;max-width:480px;line-height:1.75;}
-.contact-cards{display:flex;gap:12px;flex-wrap:wrap;}
-.contact-card{
-  background:rgba(255,255,255,0.1);
-  border:1px solid rgba(255,255,255,0.15);
-  border-radius:8px;padding:0.8rem 1.4rem;
-  text-decoration:none;color:#fff;
-  font-size:13px;font-family:'JetBrains Mono',monospace;
-  letter-spacing:0.04em;
-  transition:background .2s,transform .2s;
-  display:flex;align-items:center;gap:8px;
-}
-.contact-card:hover{background:rgba(255,255,255,0.18);transform:translateY(-2px);}
-.contact-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.5);}
+#contact{background:var(--accent);position:relative;overflow:hidden;padding:6rem 5vw;}
+#contact::before{content:'CONNECT';position:absolute;right:-2vw;bottom:-1.5rem;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(6rem,17vw,21rem);color:rgba(255,255,255,.032);pointer-events:none;user-select:none;line-height:1;}
+.ci{max-width:var(--max);margin:0 auto;}
+.ce{font-family:'Fira Code',monospace;font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.42);text-transform:uppercase;margin-bottom:.8rem;display:flex;align-items:center;gap:8px;}
+.ce::before{content:'';display:block;width:20px;height:1px;background:rgba(255,255,255,.32);}
+.ct2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(2.2rem,4.5vw,4rem);color:#fff;line-height:1.1;margin-bottom:1.2rem;}
+.ct2 em{font-style:italic;color:rgba(255,255,255,.52);}
+.csub{font-size:14.5px;color:rgba(255,255,255,.58);margin-bottom:2.8rem;max-width:500px;line-height:1.8;font-weight:400;}
+.clinks{display:flex;gap:12px;flex-wrap:wrap;}
+.clink{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:7px;padding:.85rem 1.5rem;text-decoration:none;color:#fff;font-family:'Fira Code',monospace;font-size:12px;letter-spacing:.05em;display:flex;align-items:center;gap:9px;transition:background .2s,transform .2s;}
+.clink:hover{background:rgba(255,255,255,.2);transform:translateY(-2px);}
+.cdot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.5);}
 
 /* FOOTER */
-footer{
-  background:var(--ink);color:rgba(255,255,255,0.4);
-  padding:1.5rem 5vw;
-  display:flex;justify-content:space-between;align-items:center;
-  font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.05em;
-  flex-wrap:wrap;gap:8px;
-}
-footer a{color:rgba(255,255,255,0.4);text-decoration:none;}
+footer{background:var(--ink);color:rgba(255,255,255,.33);padding:1.6rem 5vw;display:flex;justify-content:space-between;align-items:center;font-family:'Fira Code',monospace;font-size:10.5px;letter-spacing:.05em;flex-wrap:wrap;gap:8px;}
+footer a{color:rgba(255,255,255,.33);text-decoration:none;transition:color .2s;}
+footer a:hover{color:rgba(255,255,255,.7);}
 
 /* ANIMATIONS */
-.fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
-.fade-up.visible{opacity:1;transform:translateY(0);}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease;}
+.rv.on{opacity:1;transform:translateY(0);}
+.rvl{opacity:0;transform:translateX(-22px);transition:opacity .65s ease,transform .65s ease;}
+.rvl.on{opacity:1;transform:translateX(0);}
 
 /* RESPONSIVE */
-@media(max-width:900px){
-  .hero-inner{grid-template-columns:1fr;gap:3rem;}
-  .about-grid{grid-template-columns:1fr;}
-  .projects-grid{grid-template-columns:1fr;}
-  .skills-layout{grid-template-columns:1fr 1fr;}
-  .exp-item{grid-template-columns:1fr;}
-  .nav-links .nav-hide{display:none;}
+@media(max-width:960px){
+  .hero-inner,.ag{grid-template-columns:1fr;gap:3rem;}
+  .pg{grid-template-columns:1fr;}
+  .skg{grid-template-columns:1fr 1fr;}
+  .exi{grid-template-columns:1fr;gap:.5rem;}
+  .exm{padding-bottom:.8rem;border-bottom:1px solid var(--line);}
+  .nh{display:none;}
 }
 @media(max-width:600px){
-  .skills-layout{grid-template-columns:1fr;}
+  .skg{grid-template-columns:1fr;}
   .stat-grid{grid-template-columns:1fr 1fr;}
-  nav{padding:0 4vw;}
   section{padding:4rem 4vw;}
+  nav{padding:0 4vw;}
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a class="nav-logo" href="#">SHARAN.DEV</a>
+<nav id="topnav">
+  <a class="nav-logo" href="#home"><span class="nav-dot"></span>SHARAN.DEV</a>
   <div class="nav-links">
-    <a href="#about" class="nav-hide">About</a>
-    <a href="#projects" class="nav-hide">Projects</a>
-    <a href="#skills" class="nav-hide">Skills</a>
-    <a href="#experience" class="nav-hide">Experience</a>
+    <a href="#about" class="nh">About</a>
+    <a href="#projects" class="nh">Projects</a>
+    <a href="#skills" class="nh">Skills</a>
+    <a href="#experience" class="nh">Experience</a>
     <a href="#contact" class="nav-cta">Hire Me</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-bg-text">D365</div>
+  <div class="hero-wm">D365</div>
   <div class="hero-inner">
-    <div class="hero-left">
-      <p class="hero-label">Available for new opportunities</p>
-      <h1 class="hero-name">
-        Vemula Bhagya<br><span>Venkata Sharan</span>
-      </h1>
-      <p class="hero-role">D365 Techno-Functional Consultant · Power Platform · AI Integration</p>
-      <p class="hero-desc">
-        I bridge the gap between business requirements and technical delivery — building intelligent CRM systems on Microsoft Dynamics 365, Power Platform, and AI that actually solve enterprise problems.
-      </p>
-      <div class="hero-btns">
-        <a href="#projects" class="btn-fill">View My Work</a>
-        <a href="#contact" class="btn-ghost">Let's Talk</a>
+    <div>
+      <p class="h-tag">Available for new opportunities</p>
+      <h1 class="h-name">Vemula Bhagya<span>Venkata Sharan</span></h1>
+      <p class="h-role">D365 Techno-Functional Consultant&nbsp;&nbsp;·&nbsp;&nbsp;Power Platform&nbsp;&nbsp;·&nbsp;&nbsp;AI Integration<br/>Caliber Focus&nbsp;&nbsp;·&nbsp;&nbsp;Chennai, India</p>
+      <p class="h-desc">I bridge business requirements and technical delivery — building intelligent CRM systems on Microsoft Dynamics 365, Power Platform, and AI that solve real enterprise problems at scale.</p>
+      <div class="h-btns">
+        <a href="#projects" class="btn-f">View My Work</a>
+        <a href="#contact" class="btn-g">Let's Talk</a>
       </div>
     </div>
-    <div class="hero-right">
+    <div class="h-right">
       <div class="stat-grid">
-        <div class="stat-card fade-up">
-          <div class="stat-num">3+</div>
-          <div class="stat-label">Years in D365 CE/CRM</div>
-        </div>
-        <div class="stat-card fade-up">
-          <div class="stat-num">4</div>
-          <div class="stat-label">AI-powered builds</div>
-        </div>
-        <div class="stat-card fade-up">
-          <div class="stat-num">3</div>
-          <div class="stat-label">MS Certifications</div>
-        </div>
-        <div class="stat-card fade-up">
-          <div class="stat-num">∞</div>
-          <div class="stat-label">Problems solved</div>
-        </div>
+        <div class="stat-card rv"><div class="stat-num" data-target="3">0</div><div class="stat-lbl">Years in D365 CE</div></div>
+        <div class="stat-card rv"><div class="stat-num" data-target="5">0</div><div class="stat-lbl">AI-powered builds</div></div>
+        <div class="stat-card rv"><div class="stat-num" data-target="3">0</div><div class="stat-lbl">MS Certifications</div></div>
+        <div class="stat-card rv"><div class="stat-num" data-target="3">0</div><div class="stat-lbl">Industries served</div></div>
       </div>
-      <div class="cert-block fade-up">
-        <span class="cert-label">CERTIFIED</span>
+      <div class="cert-strip rv">
+        <span class="cert-lbl">CERTIFIED</span>
         <span class="cert-pill">PL-900</span>
         <span class="cert-pill">PL-400</span>
         <span class="cert-pill">MB-910</span>
       </div>
-      <div class="stack-block fade-up">
-        <span class="stack-tag">D365 CE</span>
-        <span class="stack-tag">Power Platform</span>
-        <span class="stack-tag">Semantic Kernel</span>
-        <span class="stack-tag">Azure Functions</span>
-        <span class="stack-tag">Dataverse</span>
-        <span class="stack-tag">C# Plugins</span>
-        <span class="stack-tag">Groq API</span>
-        <span class="stack-tag">FastAPI</span>
+      <div class="stack-wrap rv">
+        <span class="stag">D365 CE</span><span class="stag">Power Platform</span>
+        <span class="stag">C# Plugins</span><span class="stag">Semantic Kernel</span>
+        <span class="stag">Azure Functions</span><span class="stag">Dataverse</span>
+        <span class="stag">Groq API</span><span class="stag">FastAPI</span><span class="stag">Python</span>
       </div>
     </div>
   </div>
@@ -463,32 +245,32 @@ footer a{color:rgba(255,255,255,0.4);text-decoration:none;}
 
 <!-- ABOUT -->
 <section id="about">
-  <div class="section-inner">
-    <p class="section-eyebrow fade-up">About me</p>
-    <h2 class="section-title fade-up">Techno-functional by design,<br><em style="font-style:italic;color:var(--accent);">AI-first by choice.</em></h2>
-    <div class="about-grid">
-      <div class="about-text fade-up">
-        <p>I'm a <strong>D365 Techno-Functional Consultant at Caliber Focus, Chennai</strong>, with over 3 years of hands-on experience building and customising enterprise CRM solutions on Microsoft Dynamics 365 CE and the Power Platform.</p>
-        <p>What sets me apart isn't just the technical depth — it's the ability to sit with a business stakeholder, understand their workflow pain, and translate that into a clean architecture involving <strong>plugins, flows, AI agents, and Dataverse models</strong> that scale.</p>
-        <p>Over the past year I've gone deep into <strong>AI integration</strong> — building multi-agent orchestration systems with Semantic Kernel, LLM-powered pipelines using Groq, and production AI features inside D365/Power Platform. This intersection of CRM domain expertise and AI engineering is where I operate best.</p>
-        <p>I'm actively targeting roles at <strong>Microsoft partner firms</strong> (EY, Avanade, Hitachi Solutions) and forward-thinking product companies where the work sits at the edge of D365, Power Platform, and intelligent automation.</p>
+  <div class="si">
+    <p class="s-eye rv">About me</p>
+    <h2 class="s-title rv">Techno-functional by design,<br><em>AI-first by choice.</em></h2>
+    <div class="ag">
+      <div class="ab rvl">
+        <p>I'm a <strong>Dynamics 365 Techno-Functional Consultant at Caliber Focus, Chennai</strong> — with nearly 3 years of experience delivering enterprise CRM solutions across hospitality, healthcare, and operations domains.</p>
+        <p>What sets me apart is full-stack consulting ability: I sit in requirements workshops, translate business logic into a <strong>clean Dataverse model and plugin architecture</strong>, build the Power Automate flows, and own it to go-live — without handing off to anyone.</p>
+        <p>Over the past year I've gone deep into <strong>AI-native development</strong> — multi-agent orchestration with Semantic Kernel, LLM-powered automation pipelines, and production AI features inside D365/Power Platform. This intersection of CRM domain expertise and modern AI engineering is where I operate best.</p>
+        <p>I'm targeting <strong>D365 + AI consultant roles and Power Platform developer positions</strong> at Microsoft partner firms like EY, Avanade, and Hitachi Solutions — where the work sits at the edge of intelligent enterprise automation.</p>
       </div>
-      <div class="about-highlights fade-up">
-        <div class="highlight-card">
-          <div class="highlight-title">Techno-Functional Bridge</div>
-          <div class="highlight-body">Equally comfortable in requirements workshops and in Visual Studio writing C# plugins — can own a feature end-to-end without handoffs.</div>
+      <div class="ac-list rv">
+        <div class="ac">
+          <div class="ac-t">Techno-Functional Depth</div>
+          <div class="ac-b">Own features end-to-end — from stakeholder requirement to C# plugin, Power Automate flow, and go-live. No hand-offs needed.</div>
         </div>
-        <div class="highlight-card red">
-          <div class="highlight-title">AI-Native CRM Development</div>
-          <div class="highlight-body">Building production AI systems on Power Platform using Semantic Kernel, multi-agent orchestration, and LLMs — not just Copilot Studio wrappers.</div>
+        <div class="ac r">
+          <div class="ac-t">AI-Native CRM Engineering</div>
+          <div class="ac-b">Building production multi-agent AI systems natively within the Microsoft stack — Semantic Kernel, Groq LLM, Azure Functions — not just Copilot Studio wrappers.</div>
         </div>
-        <div class="highlight-card teal">
-          <div class="highlight-title">Microsoft Ecosystem Depth</div>
-          <div class="highlight-body">D365 CE · Power Apps · Power Automate · Power Pages · Dataverse · Azure Functions · Azure App Service — all in active use across real projects.</div>
+        <div class="ac t">
+          <div class="ac-t">Microsoft Ecosystem Breadth</div>
+          <div class="ac-b">D365 CE · Canvas & Model-Driven Apps · Power Automate · Power Pages · Dataverse · Azure Functions · Custom Connectors — all in active production use.</div>
         </div>
-        <div class="highlight-card" style="border-left-color:var(--amber);">
-          <div class="highlight-title">ISV & Product Mindset</div>
-          <div class="highlight-body">Built TalentFlow as an AppSource-targeted product — understands solution packaging, publisher prefixes, managed solutions, and ISV go-to-market.</div>
+        <div class="ac a">
+          <div class="ac-t">ISV & Product Thinking</div>
+          <div class="ac-b">Built TalentFlow as a real AppSource-targeted product — managed solutions, publisher prefixes, offer types, and commercial go-to-market.</div>
         </div>
       </div>
     </div>
@@ -496,93 +278,50 @@ footer a{color:rgba(255,255,255,0.4);text-decoration:none;}
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" style="background:var(--bg2);">
-  <div class="section-inner">
-    <p class="section-eyebrow fade-up">What I've built</p>
-    <h2 class="section-title fade-up">Projects that ship.</h2>
-    <div class="projects-grid">
+<section id="projects">
+  <div class="si">
+    <p class="s-eye rv">What I've built</p>
+    <h2 class="s-title rv">Projects that <em>ship.</em></h2>
+    <div class="pg">
 
-      <!-- Project 1 -->
-      <div class="proj-card c-blue fade-up">
-        <div class="proj-header">
-          <div class="proj-icon blue">🤖</div>
-          <span class="proj-status s-wip">In Progress</span>
-        </div>
-        <h3 class="proj-title">Hospitality Multi-Agent CRM POC</h3>
-        <p class="proj-desc">A six-agent AI orchestration system built on Microsoft Power Platform and Semantic Kernel 1.28. Agents autonomously handle guest profiling, room preference learning, complaint routing, upsell recommendations, and sentiment analysis — all backed by a purpose-built six-entity Dataverse schema with the sv_ publisher prefix.</p>
-        <div class="proj-impact">
-          <strong>Why it matters:</strong> Demonstrates enterprise-grade multi-agent AI architecture natively within the Microsoft ecosystem — exactly the capability Microsoft partners are actively hiring for.
-        </div>
-        <div class="proj-tags">
-          <span class="proj-tag">Semantic Kernel 1.28</span>
-          <span class="proj-tag">FastAPI</span>
-          <span class="proj-tag">Azure App Service</span>
-          <span class="proj-tag">Groq llama-3.3-70b</span>
-          <span class="proj-tag">Dataverse</span>
-          <span class="proj-tag">Power Automate</span>
-          <span class="proj-tag">Power Pages</span>
-        </div>
+      <div class="pc cb rv">
+        <div class="pt"><div class="pi pib">🤖</div><span class="ps sw">In Progress</span></div>
+        <h3 class="ptitle">Hospitality Multi-Agent CRM POC</h3>
+        <p class="pdesc">Six-agent AI orchestration system on Microsoft Power Platform and Semantic Kernel 1.28. Agents autonomously handle guest profiling, room preference learning, complaint routing, upsell recommendations, and sentiment analysis — backed by a six-entity Dataverse schema (sv_ publisher prefix).</p>
+        <div class="pimp"><strong>Impact:</strong> Demonstrates enterprise-grade multi-agent AI architecture natively within the Microsoft ecosystem — exactly the capability Microsoft partners are actively hiring for.</div>
+        <div class="ptags"><span class="ptag">Semantic Kernel 1.28</span><span class="ptag">FastAPI</span><span class="ptag">Azure App Service</span><span class="ptag">Groq llama-3.3-70b</span><span class="ptag">Dataverse</span><span class="ptag">Power Automate</span><span class="ptag">Power Pages</span></div>
       </div>
 
-      <!-- Project 2 -->
-      <div class="proj-card c-red fade-up">
-        <div class="proj-header">
-          <div class="proj-icon red">⚡</div>
-          <span class="proj-status s-shipped">Shipped</span>
-        </div>
-        <h3 class="proj-title">TalentFlow — AI-Powered ATS Pipeline</h3>
-        <p class="proj-desc">End-to-end applicant tracking pipeline that ingests PDF and legacy .doc resumes via Azure Functions (Python), extracts structured candidate data using Groq LLM, scores and ranks applicants, and persists everything in Dataverse. Power Automate orchestrates the entire flow. Targeting AppSource ISV publication as a "Contact Me" offer.</p>
-        <div class="proj-impact">
-          <strong>Why it matters:</strong> A real ISV product in the AppSource pipeline — demonstrates product engineering, solution architecture, and commercial thinking beyond typical consultant work.
-        </div>
-        <div class="proj-tags">
-          <span class="proj-tag">Azure Functions (Python)</span>
-          <span class="proj-tag">Power Automate</span>
-          <span class="proj-tag">Groq API</span>
-          <span class="proj-tag">Dataverse</span>
-          <span class="proj-tag">AppSource ISV</span>
-        </div>
+      <div class="pc cr rv">
+        <div class="pt"><div class="pi pir">⚡</div><span class="ps ss">Shipped · AppSource Target</span></div>
+        <h3 class="ptitle">TalentFlow — AI-Powered ATS Pipeline</h3>
+        <p class="pdesc">End-to-end applicant tracking pipeline that ingests PDF and .doc resumes via Azure Functions (Python), extracts structured candidate data using Groq LLM, auto-scores and ranks applicants, and persists everything in Dataverse. Power Automate orchestrates the full flow. Targeting AppSource as a "Contact Me" ISV offer.</p>
+        <div class="pimp"><strong>Impact:</strong> A real ISV product in the AppSource pipeline — demonstrates product engineering, solution architecture, and commercial thinking beyond typical consultant delivery.</div>
+        <div class="ptags"><span class="ptag">Azure Functions (Python)</span><span class="ptag">Power Automate</span><span class="ptag">Groq API</span><span class="ptag">Dataverse</span><span class="ptag">AppSource ISV</span></div>
       </div>
 
-      <!-- Project 3 -->
-      <div class="proj-card c-teal fade-up">
-        <div class="proj-header">
-          <div class="proj-icon teal">🗺️</div>
-          <span class="proj-status s-live">Live in Production</span>
-        </div>
-        <h3 class="proj-title">AI Guest Itinerary Recommender</h3>
-        <p class="proj-desc">Production AI recommendation engine for a hospitality client. Combines Geoapify Places API for local venue data, Open-Meteo for real-time weather context, and an LLM via Power Automate HTTP actions to generate hyper-personalised guest itineraries. Results are persisted in Dataverse against the guest record in D365 CE.</p>
-        <div class="proj-impact">
-          <strong>Why it matters:</strong> This is live, client-facing, production AI — not a demo. Proof that AI features can be delivered within the Microsoft stack without leaving the Power Platform.
-        </div>
-        <div class="proj-tags">
-          <span class="proj-tag">Power Automate</span>
-          <span class="proj-tag">Geoapify API</span>
-          <span class="proj-tag">Open-Meteo</span>
-          <span class="proj-tag">LLM via HTTP</span>
-          <span class="proj-tag">Dataverse</span>
-          <span class="proj-tag">D365 CE</span>
-        </div>
+      <div class="pc ct rv">
+        <div class="pt"><div class="pi pit">🗺️</div><span class="ps sp">Live in Production</span></div>
+        <h3 class="ptitle">AI Guest Itinerary Recommender</h3>
+        <p class="pdesc">Production AI recommendation engine inside Dynamics 365 for a North America hospitality client. Custom Connector integrates Geoapify Places API and real-time Open-Meteo weather data; combined context is passed to an LLM via Power Automate HTTP action to generate personalised itineraries — auto-delivered by email on check-in and persisted in Dataverse for staff CRM reference.</p>
+        <div class="pimp"><strong>Impact:</strong> Live, client-facing, production AI on Power Platform — not a demo. Proves AI features can be delivered within the Microsoft stack without leaving the ecosystem.</div>
+        <div class="ptags"><span class="ptag">Power Automate</span><span class="ptag">Custom Connector</span><span class="ptag">Geoapify API</span><span class="ptag">Open-Meteo</span><span class="ptag">LLM via HTTP</span><span class="ptag">Dataverse</span><span class="ptag">D365 CE</span></div>
       </div>
 
-      <!-- Project 4 -->
-      <div class="proj-card c-amber fade-up">
-        <div class="proj-header">
-          <div class="proj-icon amber">🔧</div>
-          <span class="proj-status s-shipped">Shipped</span>
-        </div>
-        <h3 class="proj-title">CRM Code Optimizer — Chrome Extension</h3>
-        <p class="proj-desc">Manifest V3 Chrome extension with a four-agent AI pipeline for analysing D365 plugin C# and JavaScript code directly in the browser. Agents review for performance, best practices, security vulnerabilities, and refactoring opportunities — powered by a Python proxy server routing to Groq API. Solved CORS, JSON parsing fragility, and server startup challenges.</p>
-        <div class="proj-impact">
-          <strong>Why it matters:</strong> A productivity tool built for D365 developers — shows product thinking and the ability to package AI capabilities into developer-friendly tooling.
-        </div>
-        <div class="proj-tags">
-          <span class="proj-tag">Chrome Extension MV3</span>
-          <span class="proj-tag">Python Proxy</span>
-          <span class="proj-tag">Groq API</span>
-          <span class="proj-tag">C# D365 Plugins</span>
-          <span class="proj-tag">JavaScript</span>
-        </div>
+      <div class="pc ca rv">
+        <div class="pt"><div class="pi pia">✉️</div><span class="ps sp">Live / Shipped</span></div>
+        <h3 class="ptitle">AI Job Application Automation System</h3>
+        <p class="pdesc">Full-stack Power Platform automation eliminating manual job application effort. Canvas App captures job descriptions and manages application data in Dataverse. Power Automate calls Groq LLM to generate personalised application emails grounded strictly in resume content — constrained prompting prevents hallucination. Delivers emails with attachments via Outlook and Brevo API, solving real-world deliverability challenges: spam filtering, sender reputation, and attachment handling.</p>
+        <div class="pimp"><strong>Impact:</strong> Solved non-trivial engineering problems end-to-end — from Canvas form state management (New/Edit modes) to autonomous email delivery. Not a tutorial project.</div>
+        <div class="ptags"><span class="ptag">Power Apps Canvas</span><span class="ptag">Power Automate</span><span class="ptag">Groq LLM</span><span class="ptag">Dataverse</span><span class="ptag">Outlook API</span><span class="ptag">Brevo API</span><span class="ptag">Prompt Engineering</span></div>
+      </div>
+
+      <div class="pc cg rv">
+        <div class="pt"><div class="pi pig">📋</div><span class="ps ss">Shipped · Enterprise</span></div>
+        <h3 class="ptitle">MBG Power Platform — Medical Rep Field Ops</h3>
+        <p class="pdesc">Enterprise Canvas App for a multi-region medical representative field team — covering doctor visit management, product detailing, expense tracking, and daily call reports. Integrated with Dataverse and D365 CRM via Power Automate for real-time data sync. Features automated approval workflows, role-based access control (manager vs. field rep), dynamic QR code generation via external API, and validation rules enforcing data quality at submission.</p>
+        <div class="pimp"><strong>Impact:</strong> Reduced approval turnaround time and eliminated manual follow-up cycles across a distributed healthcare field operations team. Adopted across multiple regions.</div>
+        <div class="ptags"><span class="ptag">Canvas App</span><span class="ptag">Power Automate</span><span class="ptag">Dataverse</span><span class="ptag">D365 CRM</span><span class="ptag">RBAC</span><span class="ptag">QR Code API</span><span class="ptag">Approval Workflows</span></div>
       </div>
 
     </div>
@@ -591,86 +330,104 @@ footer a{color:rgba(255,255,255,0.4);text-decoration:none;}
 
 <!-- SKILLS -->
 <section id="skills">
-  <div class="section-inner">
-    <p class="section-eyebrow fade-up">Capabilities</p>
-    <h2 class="section-title fade-up">What I bring to the table.</h2>
-    <div class="skills-layout">
-
-      <div class="skill-card fade-up">
-        <div class="skill-card-title">Microsoft D365 & CRM</div>
-        <div class="skill-rows">
-          <div class="skill-row"><span class="skill-name">D365 CE / CRM</span><div class="skill-track"><div class="skill-bar" style="width:92%"></div></div></div>
-          <div class="skill-row"><span class="skill-name">C# Plugin Dev</span><div class="skill-track"><div class="skill-bar" style="width:84%"></div></div></div>
-          <div class="skill-row"><span class="skill-name">Dataverse / FetchXML</span><div class="skill-track"><div class="skill-bar" style="width:88%"></div></div></div>
-          <div class="skill-row"><span class="skill-name">Solution Architecture</span><div class="skill-track"><div class="skill-bar" style="width:78%"></div></div></div>
-          <div class="skill-row"><span class="skill-name">Functional Consulting</span><div class="skill-track"><div class="skill-bar" style="width:85%"></div></div></div>
+  <div class="si">
+    <p class="s-eye rv">Capabilities</p>
+    <h2 class="s-title rv">What I bring <em>to the table.</em></h2>
+    <div class="skg">
+      <div class="skc rv">
+        <div class="skh">Microsoft D365 &amp; CRM</div>
+        <div class="skrs">
+          <div class="skr"><span class="skn">D365 CE / CRM</span><div class="skt"><div class="skb" data-w="92"></div></div></div>
+          <div class="skr"><span class="skn">C# Plugin Dev</span><div class="skt"><div class="skb" data-w="85"></div></div></div>
+          <div class="skr"><span class="skn">Dataverse / FetchXML</span><div class="skt"><div class="skb" data-w="88"></div></div></div>
+          <div class="skr"><span class="skn">JavaScript (CRM)</span><div class="skt"><div class="skb" data-w="80"></div></div></div>
+          <div class="skr"><span class="skn">Solution Architecture</span><div class="skt"><div class="skb" data-w="78"></div></div></div>
+          <div class="skr"><span class="skn">Functional Consulting</span><div class="skt"><div class="skb" data-w="86"></div></div></div>
         </div>
       </div>
-
-      <div class="skill-card fade-up">
-        <div class="skill-card-title">Power Platform</div>
-        <div class="skill-rows">
-          <div class="skill-row"><span class="skill-name">Power Automate</span><div class="skill-track"><div class="skill-bar red" style="width:88%"></div></div></div>
-          <div class="skill-row"><span class="skill-name">Power Apps (Canvas/Model)</span><div class="skill-track"><div class="skill-bar red" style="width:80%"></div></div></div>
-          <div class="skill-row"><span class="skill-name">Power Pages</span><div class="skill-track"><div class="skill-bar red" style="width:74%"></div></div></div>
-          <div class="skill-row"><span class="skill-name">Copilot Studio</span><div class="skill-track"><div class="skill-bar red" style="width:68%"></div></div></div>
-          <div class="skill-row"><span class="skill-name">Power BI (basics)</span><div class="skill-track"><div class="skill-bar red" style="width:60%"></div></div></div>
+      <div class="skc rv">
+        <div class="skh">Power Platform</div>
+        <div class="skrs">
+          <div class="skr"><span class="skn">Power Automate</span><div class="skt"><div class="skb r" data-w="91"></div></div></div>
+          <div class="skr"><span class="skn">Canvas Apps</span><div class="skt"><div class="skb r" data-w="85"></div></div></div>
+          <div class="skr"><span class="skn">Model-Driven Apps</span><div class="skt"><div class="skb r" data-w="82"></div></div></div>
+          <div class="skr"><span class="skn">Power Pages</span><div class="skt"><div class="skb r" data-w="75"></div></div></div>
+          <div class="skr"><span class="skn">Custom Connectors</span><div class="skt"><div class="skb r" data-w="78"></div></div></div>
+          <div class="skr"><span class="skn">Copilot Studio</span><div class="skt"><div class="skb r" data-w="66"></div></div></div>
         </div>
       </div>
-
-      <div class="skill-card fade-up">
-        <div class="skill-card-title">AI & Cloud Engineering</div>
-        <div class="skill-rows">
-          <div class="skill-row"><span class="skill-name">Semantic Kernel</span><div class="skill-track"><div class="skill-bar teal" style="width:82%"></div></div></div>
-          <div class="skill-row"><span class="skill-name">LLM Integration</span><div class="skill-track"><div class="skill-bar teal" style="width:85%"></div></div></div>
-          <div class="skill-row"><span class="skill-name">Azure Functions</span><div class="skill-track"><div class="skill-bar teal" style="width:76%"></div></div></div>
-          <div class="skill-row"><span class="skill-name">Python / FastAPI</span><div class="skill-track"><div class="skill-bar teal" style="width:73%"></div></div></div>
-          <div class="skill-row"><span class="skill-name">REST API Design</span><div class="skill-track"><div class="skill-bar teal" style="width:79%"></div></div></div>
+      <div class="skc rv">
+        <div class="skh">AI &amp; Cloud Engineering</div>
+        <div class="skrs">
+          <div class="skr"><span class="skn">LLM Integration</span><div class="skt"><div class="skb t" data-w="87"></div></div></div>
+          <div class="skr"><span class="skn">Semantic Kernel</span><div class="skt"><div class="skb t" data-w="80"></div></div></div>
+          <div class="skr"><span class="skn">Prompt Engineering</span><div class="skt"><div class="skb t" data-w="83"></div></div></div>
+          <div class="skr"><span class="skn">Azure Functions</span><div class="skt"><div class="skb t" data-w="77"></div></div></div>
+          <div class="skr"><span class="skn">Python / FastAPI</span><div class="skt"><div class="skb t" data-w="74"></div></div></div>
+          <div class="skr"><span class="skn">REST API Design</span><div class="skt"><div class="skb t" data-w="79"></div></div></div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
 <!-- EXPERIENCE -->
-<section id="experience" style="background:var(--bg2);">
-  <div class="section-inner">
-    <p class="section-eyebrow fade-up">Work history</p>
-    <h2 class="section-title fade-up">Experience.</h2>
-    <div class="exp-timeline">
+<section id="experience">
+  <div class="si">
+    <p class="s-eye rv">Work history</p>
+    <h2 class="s-title rv">Experience.</h2>
+    <div class="exl">
 
-      <div class="exp-item fade-up">
-        <div>
-          <div class="exp-date">2022 — Present</div>
-          <div class="exp-company">Caliber Focus · Chennai</div>
+      <div class="exi rv">
+        <div class="exm">
+          <div class="exp">Oct 2025 – Present</div>
+          <div class="exc">Caliber Focus</div>
+          <div class="exl2">Chennai, India</div>
         </div>
         <div>
-          <div class="exp-role">D365 Techno-Functional Consultant</div>
-          <p class="exp-desc">Leading end-to-end D365 CE implementations and customisations for enterprise clients — combining functional consulting with hands-on technical delivery.</p>
-          <ul class="exp-points">
-            <li>Designed and delivered custom D365 CE solutions including plugin pipelines, Power Automate flows, Canvas apps, and Dataverse data models</li>
-            <li>Built a production AI guest itinerary recommender using Power Automate, Geoapify, Open-Meteo, and LLM integration — live with a hospitality client</li>
-            <li>Developed and maintained C# plugins for complex business logic including pre/post operation handlers and custom workflow activities</li>
-            <li>Translated client business requirements into functional specifications, solution designs, and working Power Platform implementations</li>
-            <li>Managed solution lifecycle: development, managed solution packaging, deployment across environments, and post-go-live support</li>
+          <div class="exr">D365 Techno-Functional Consultant</div>
+          <div class="exproj">Hospitality CRM – Guest Loyalty &amp; Service Operations (North America client)</div>
+          <p class="exs">Delivering and enhancing a D365 CE solution for a North America hospitality group — guest loyalty programs, service requests, and operational coordination across multiple properties.</p>
+          <ul class="expts">
+            <li>Customised D365 CE entities, forms, views, and dashboards to support loyalty tiers, service requests, and multi-property operations</li>
+            <li>Developed Pre-validation plugin enforcing date-based business rules with zero rollback cost; built Pre-operation plugin for auto-calculated financial fields with filtering attributes for scoped execution</li>
+            <li>Built production AI itinerary recommendation system — Custom Connector to Places API + Open-Meteo weather, LLM via HTTP, auto-email delivery on check-in, Dataverse persistence</li>
+            <li>Designed and automated end-to-end service workflows using Power Automate, reducing manual handoffs across request assignment, escalation, and status updates</li>
+            <li>Supported live production, incident resolution, root cause analysis, and post-deployment stability; collaborated on requirement gathering, impact analysis, UAT, and go-live</li>
           </ul>
         </div>
       </div>
 
-      <div class="exp-item fade-up">
-        <div>
-          <div class="exp-date">Earlier</div>
-          <div class="exp-company">Cognizant</div>
+      <div class="exi rv">
+        <div class="exm">
+          <div class="exp">Sept 2023 – Sept 2025</div>
+          <div class="exc">Cognizant</div>
+          <div class="exl2">India</div>
         </div>
         <div>
-          <div class="exp-role">Microsoft 365 / CRM Analyst</div>
-          <p class="exp-desc">Foundation in Microsoft enterprise ecosystems — supporting M365, Exchange Online, and CRM operations before specialising in D365 CE development.</p>
-          <ul class="exp-points">
-            <li>Supported Microsoft 365 and Exchange Online administration for enterprise clients</li>
-            <li>Gained foundational exposure to CRM operations and Microsoft cloud services</li>
-            <li>Developed systematic approach to enterprise support and escalation management</li>
+          <div class="exr">Dynamics 365 CRM Developer</div>
+          <div class="exproj">MBG – Power Platform Auto (Healthcare) &nbsp;·&nbsp; CRM Enhancement &amp; Support – Hospitality UK</div>
+          <p class="exs">Two concurrent tracks: enterprise Power Platform product for healthcare field operations, and CRM enhancement programme for a UK hospitality group.</p>
+          <ul class="expts">
+            <li>Delivered Canvas App for doctor visit management, expense tracking, and daily call reports — multi-region field team adoption with RBAC, automated approvals, and QR code generation via external API</li>
+            <li>Integrated app with Dataverse and D365 CRM via Power Automate; enforced data quality with validation rules and error notifications</li>
+            <li>Delivered CRM configuration and customisation across multiple enhancement cycles for UK hospitality client; implemented JavaScript client-side logic and business rules</li>
+            <li>Integrated D365 CRM with Microsoft Teams and Outlook via Power Automate; built robust error handling within flows</li>
+            <li>Contributed to incident management, production troubleshooting, UAT, and maintained technical documentation for knowledge transfer</li>
           </ul>
+        </div>
+      </div>
+
+      <div class="exi rv">
+        <div class="exm">
+          <div class="exp">2019 – 2023</div>
+          <div class="exc">Bharath University</div>
+          <div class="exl2">Chennai, India</div>
+        </div>
+        <div>
+          <div class="exr">B.Tech — Electronics &amp; Communication Engineering</div>
+          <div class="exproj">Graduated with 82%</div>
+          <p class="exs">Strong analytical and systems-thinking foundation directly applicable to solution architecture and enterprise platform development.</p>
         </div>
       </div>
 
@@ -679,44 +436,77 @@ footer a{color:rgba(255,255,255,0.4);text-decoration:none;}
 </section>
 
 <!-- CONTACT -->
-<section class="contact-section" id="contact">
-  <div class="contact-inner">
-    <p class="contact-eyebrow fade-up">Get in touch</p>
-    <h2 class="contact-title fade-up">Open to the right<br><em>opportunity.</em></h2>
-    <p class="contact-sub fade-up">
-      Targeting D365 + AI consultant roles and Power Platform developer positions at Microsoft partner firms. Based in Chennai — open to hybrid and remote across India.
-    </p>
-    <div class="contact-cards fade-up">
-      <a class="contact-card" href="https://www.linkedin.com/in/sharan-vemula-b2680223b/" target="_blank" rel="noopener">
-        <span class="contact-dot"></span>LinkedIn
-      </a>
-      <a class="contact-card" href="mailto:sharanvemula99@gmail.com">
-        <span class="contact-dot"></span>Email Me
-      </a>
-      <a class="contact-card" href="https://github.com/bhagyam2001" target="_blank" rel="noopener">
-        <span class="contact-dot"></span>GitHub
-      </a>
+<section id="contact">
+  <div class="ci">
+    <p class="ce rv">Get in touch</p>
+    <h2 class="ct2 rv">Open to the right<br><em>opportunity.</em></h2>
+    <p class="csub rv">Targeting D365 + AI consultant roles and Power Platform developer positions at Microsoft partner firms. Based in Chennai — open to hybrid and remote across India.</p>
+    <div class="clinks rv">
+      <a class="clink" href="https://www.linkedin.com/in/sharan-vemula-b2680223b/" target="_blank" rel="noopener"><span class="cdot"></span>LinkedIn</a>
+      <a class="clink" href="mailto:sharanvemula99@gmail.com"><span class="cdot"></span>sharanvemula99@gmail.com</a>
+      <a class="clink" href="tel:+919000586471"><span class="cdot"></span>+91 90005 86471</a>
+      <a class="clink" href="https://github.com/bhagyam2001"><span class="cdot"></span>GitHub</a>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <span>© 2025 Vemula Bhagya Venkata Sharan</span>
-  <span>Chennai, India · D365 CE · Power Platform · AI</span>
+  <span>Chennai, India &nbsp;·&nbsp; D365 CE &nbsp;·&nbsp; Power Platform &nbsp;·&nbsp; AI</span>
   <a href="https://www.linkedin.com/in/sharan-vemula-b2680223b/" target="_blank">linkedin ↗</a>
 </footer>
 
 <script>
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); } });
-}, { threshold: 0.12 });
-document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+// Nav shadow on scroll
+const nav=document.getElementById('topnav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20));
 
-// stagger hero stats
-document.querySelectorAll('.stat-card').forEach((el,i) => {
-  el.style.transitionDelay = (i * 0.08) + 's';
+// Reveal observer
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');ro.unobserve(e.target);}});
+},{threshold:0.1});
+document.querySelectorAll('.rv,.rvl').forEach((el,i)=>{
+  el.style.transitionDelay=(i%6)*0.07+'s';
+  ro.observe(el);
 });
+
+// Animate skill bars
+const bro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.skb').forEach((b,i)=>{
+        const w=b.dataset.w+'%';
+        b.style.width='0';
+        setTimeout(()=>{b.style.width=w;},i*90+250);
+      });
+      bro.unobserve(e.target);
+    }
+  });
+},{threshold:0.25});
+document.querySelectorAll('.skc').forEach(c=>bro.observe(c));
+
+// Count-up for stat numbers
+const cro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.stat-num[data-target]').forEach(el=>{
+        const end=+el.dataset.target;
+        const suffix=el.dataset.suffix||'+';
+        let s=null;const dur=1400;
+        const frame=ts=>{
+          if(!s)s=ts;
+          const prog=Math.min((ts-s)/dur,1);
+          const ease=1-Math.pow(1-prog,3);
+          el.textContent=Math.round(ease*end)+suffix;
+          if(prog<1)requestAnimationFrame(frame);
+        };
+        requestAnimationFrame(frame);
+      });
+      cro.unobserve(e.target);
+    }
+  });
+},{threshold:0.5});
+document.querySelectorAll('.stat-grid').forEach(g=>cro.observe(g));
 </script>
 </body>
 </html>
